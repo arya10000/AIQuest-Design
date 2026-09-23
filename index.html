@@ -1,16 +1,164 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AIQuest-Design</title>
-    </head>
-    <body>
-        <h1>Wel Come to AIQuest-Design</h1>
-        <img src="images/AIQuestHome Page.png" alt="AIQuest Home">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <img src="images/LearnAI.jpg" alt="Learn AI">
+    <title>AIQuest Design Preview</title>
 
-        <img src="images/Robotics.jpg" alt="Robotics">
-    </body>
-    </html>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #111827;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .buttons button {
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            background: #111827;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #f97316;
+        }
+
+        .buttons button.active {
+            background: #f97316;
+        }
+
+        .design-viewer {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .design-viewer img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .design-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>AIQuest Design Preview</h1>
+
+        <div class="buttons">
+
+            <button class="active" onclick="showDesign('home', this)">
+                AIQuest Home
+            </button>
+
+            <button onclick="showDesign('learn', this)">
+                Learn AI
+            </button>
+
+            <button onclick="showDesign('robotics', this)">
+                Robotics
+            </button>
+
+        </div>
+
+        <div class="design-viewer">
+
+            <div class="design-title" id="designTitle">
+                AIQuest Home
+            </div>
+
+            <img
+                id="designImage"
+                src="images/AIQuestHome Page.png"
+                alt="AIQuest Home Design"
+            >
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function showDesign(page, button) {
+
+            const image = document.getElementById("designImage");
+            const title = document.getElementById("designTitle");
+
+            const buttons = document.querySelectorAll(".buttons button");
+
+            buttons.forEach(function(btn) {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+
+            if (page === "home") {
+
+                image.src = "images/AIQuestHome Page.png";
+                image.alt = "AIQuest Home Design";
+                title.textContent = "AIQuest Home";
+
+            }
+
+            else if (page === "learn") {
+
+                image.src = "images/LearnAI.jpg";
+                image.alt = "Learn AI Design";
+                title.textContent = "Learn AI";
+
+            }
+
+            else if (page === "robotics") {
+
+                image.src = "images/Robotics.jpg";
+                image.alt = "Robotics Design";
+                title.textContent = "Robotics";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
